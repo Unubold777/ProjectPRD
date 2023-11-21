@@ -12,7 +12,7 @@ RequestData.init(
       autoIncrement: true,
     },
     question:{
-        type: DataTypes.STRING(1000)
+        type: DataTypes.STRING(10000)
     },
     submittedDate:{
         type:DataTypes.DATE

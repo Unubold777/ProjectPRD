@@ -3,9 +3,9 @@ const db = require("../services/database");
 const moment = require('moment');
 const RequestData = require("./requestData");
 
-class ResponseData extends Model {}
+class QuestionData extends Model {}
 
-ResponseData.init(
+QuestionData.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -22,8 +22,14 @@ ResponseData.init(
     submittedDate:{
         type: DataTypes.DATE
     },
-    answer:{
-        type: DataTypes.STRING(50000),
+    answer1:{
+        type: DataTypes.STRING(100),
+    },
+    answer2:{
+        type: DataTypes.STRING(100),
+    },
+    answer3:{
+        type: DataTypes.STRING(100),
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -39,8 +45,8 @@ ResponseData.init(
   },
   {
     sequelize: db,
-    modelName: 'responseData',
-    tableName: 'responseData', 
+    modelName: 'questionData',
+    tableName: 'questionData', 
         freezeTableName: true,
   }
 );
@@ -52,4 +58,4 @@ ResponseData.belongsTo(RequestData, {
   onUpdate: 'CASCADE',
 });
 
-module.exports = ResponseData;
+module.exports = QuestionData;

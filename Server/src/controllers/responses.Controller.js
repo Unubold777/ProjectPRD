@@ -1,5 +1,4 @@
 const asyncHandler = require("../middleware/asyncHandler");
-const Requests = require("../models/requestData");
 const Responses = require("../models/responseData");
 
 exports.createResponse = asyncHandler(async (req, res, next) => {
@@ -29,24 +28,24 @@ exports.createResponse = asyncHandler(async (req, res, next) => {
   })
 }
 });
+// implemented into getRequest
+// exports.getResponse = asyncHandler(async (req, res, next) => {
+//   const id = req.params.id;
 
-exports.getResponse = asyncHandler(async (req, res, next) => {
-  const id = req.params.id;
+//   const response = await Responses.findOne({
+//     where: {
+//       id: id
+//     }
+//   });
 
-  const response = await Responses.findOne({
-    where: {
-      id: id
-    }
-  });
-
-  if (!response) {
-    return res.status(404).json({
-      success: false,
-      message: "Хүсэлт олдсонгүй"
-    });
-  }
-  return res.status(200).json({
-    success: true,
-    data: response
-  });
-});
+//   if (!response) {
+//     return res.status(404).json({
+//       success: false,
+//       message: "Хүсэлт олдсонгүй"
+//     });
+//   }
+//   return res.status(200).json({
+//     success: true,
+//     data: response
+//   });
+// });
