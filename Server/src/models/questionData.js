@@ -51,7 +51,7 @@ QuestionData.init(
   }
 );
 
-ResponseData.belongsTo(RequestData, {
+QuestionData.belongsTo(RequestData, {
   foreignKey: 'request_id',
   targetKey: 'id',
   onDelete: 'CASCADE',

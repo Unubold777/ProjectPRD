@@ -11,7 +11,7 @@ const port = process.env.PORT;
 //db table add 
 const requestData = require('../models/requestData')
 const responseData = require('../models/responseData')
-
+const questionData = require('../models/questionData')
 
 function initialize() {
   const app = express();
@@ -48,7 +48,7 @@ function initialize() {
   app.use('/response', responseRoute);
  
   // Creating table from web-server
-  requestData.sync().then(()=> responseData.sync());
+  requestData.sync().then(()=> responseData.sync()).then(()=> questionData.sync());
   app.listen(process.env.PORT, function () {
     console.log("Server is ready at" + process.env.PORT);
   });

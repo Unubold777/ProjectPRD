@@ -16,7 +16,7 @@ app.use('/upload', express.static('src/upload'));
 
 async function startup() {
   try {
-    await webServer.initialize(app);
+    webServer.initialize(app);
     console.log("Вэб серверийг амжилттай асаалаа...");
   } catch (err) {
     console.error(err);
@@ -39,7 +39,7 @@ async function shutdown(e) {
 
   try {
     console.log("Вэб серверийг унтраалаа...");
-    await webServer.close();
+    webServer.close();
   } catch (e) {
     console.error(e);
     err = err || e;

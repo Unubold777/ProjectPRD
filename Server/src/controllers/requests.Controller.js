@@ -4,14 +4,17 @@ const Responses = require("../models/responseData");
 const Questions = require("../models/questionData");
 // implement createQuestion into it for fuck sake fix it before 10pm or bald
 exports.createRequest = asyncHandler(async (req, res, next) => {
-  const {question, ans1,ans2,ans3} = req.body;
-  if(!question || !ans1 || !ans2 || !ans3){
+  const {name, question, ans1,ans2,ans3} = req.body;
+  if(!question || !ans1 || !ans2 || !ans3 || !name){
+    console.log( name, question, ans1, ans2, ans3);
+    console.log(req.body.name)
     return res.status(400).json({
       success:false,
       message:"Талбар дутуу байна"
     })
   }
   const newRequest = await Requests.create({
+    name: name,
     question: question,
     submittedDate: Date.now()
   });
