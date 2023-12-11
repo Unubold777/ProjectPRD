@@ -52,13 +52,6 @@ async function shutdown(e) {
     console.error(e);
     err = err || e;
   }
-  try {
-    console.log("Дотоод сүлжээн холболтыг салгалаа...");
-    await socket.close();
-  } catch (e) {
-    console.error(e);
-    err = err || e;
-  }
   console.log("Exiting process");
 
   if (err) {
