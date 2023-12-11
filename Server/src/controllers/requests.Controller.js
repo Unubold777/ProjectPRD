@@ -3,6 +3,8 @@ const Requests = require("../models/requestData");
 const Responses = require("../models/responseData");
 const Questions = require("../models/questionData");
 // implement createQuestion into it for fuck sake fix it before 10pm or bald
+
+// prompt = Please acknowledge my following request. Please respond to me as a product owner. I will ask for subject, and you will help me writing a PRD for it with these headers and dont include any explanation:  Goal has three subheaders, those are problem, solution, system users, industry, second header is Feature, this one will give user stories at least 7 to 10 and want todo MoSCoW analysis on those stories, third header is system's characteristic, in this section write about useability, performance, supportibility, scalability, reliability, last header is risk, write about what could happen during development process.
 exports.createRequest = asyncHandler(async (req, res, next) => {
   const {name, question, ans1,ans2,ans3} = req.body;
   if(!question || !ans1 || !ans2 || !ans3 || !name){
