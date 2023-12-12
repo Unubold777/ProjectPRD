@@ -76,8 +76,7 @@ exports.postDocument = asyncHandler(async (req,res,next)=>{
 //     console.error(error);
 //     return res.status(500).send('Error: An error occurred while processing your request');
 //   }
-  
-  return `1. Goal:
+  const stringWhatEver = `1. Goal:
 
   Problem:
   Employees not working during designated hours after registering their working time, leading to decreased productivity.
@@ -131,5 +130,8 @@ exports.postDocument = asyncHandler(async (req,res,next)=>{
       Employee resistance to system adoption.
       Integration challenges with existing HR software.
       Technical issues leading to downtime or data inaccuracies.
-      Insufficient user training impacting adoption rates.`;
+      Insufficient user training impacting adoption rates.`
+  return res.status(200).json({
+    data: stringWhatEver
+  });
 });
